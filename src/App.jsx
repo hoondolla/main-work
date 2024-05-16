@@ -83,27 +83,27 @@ const App = () => {
   const [todoItems, setTodoItems] = useState([]);
   const [doneItems, setDoneItems] = useState([]);
 
-  //todo 추가 함수
+  //todo 추가 함수 // newItem 객체를 받아와서 현재 todoItems 배열에 추가하고, 각 항목에 고유한 id를 할당하여 저장함
   const handleAddItem = (newItem) => {
     setTodoItems([...todoItems, { ...newItem, id: todoItems.length }]);
   };
-  //todo 삭제 함수
+  //todo 삭제 함수 // id와 일치하지 않는 항목들만 필터링하여 새로운 todoItems 배열로 설정
   const handleDeleteItem = (id) => {
     setTodoItems(todoItems.filter((item) => item.id !== id));
   };
-  //todo 완료 함수
+  //todo 완료 함수 // 해당 항목을 doneItems 배열에 추가하고, todoItems 배열에서는 해당 항목을 제거
   const handleCompleteItem = (id) => {
     const itemToComplete = todoItems.find((item) => item.id === id);
     setDoneItems([...doneItems, itemToComplete]);
     setTodoItems(todoItems.filter((item) => item.id !== id));
   };
-  //완료 -> 취소 함수
+  //완료 -> 취소 함수 // id를 가진 항목을 doneItems 배열에서 제거하고, 해당 항목을 todoItems 배열에 추가합니다.
   const handleCancelItem = (id) => {
     const itemToCancel = doneItems.find((item) => item.id === id);
     setTodoItems([...todoItems, itemToCancel]);
     setDoneItems(doneItems.filter((item) => item.id !== id));
   };
-  //완료 상태에서 삭제하는 함수
+  //완료 상태에서 삭제하는 함수 -> id를 가진 항목을 doneItems 배열에서 제거합니다.
   const doneHandleDelete = (id) => {
     setDoneItems(doneItems.filter((item) => item.id !== id));
   };

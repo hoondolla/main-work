@@ -97,13 +97,13 @@ const App = () => {
     setDoneItems([...doneItems, itemToComplete]);
     setTodoItems(todoItems.filter((item) => item.id !== id));
   };
-  //완료 -> 취소 함수 // id를 가진 항목을 doneItems 배열에서 제거하고, 해당 항목을 todoItems 배열에 추가합니다.
+  //완료 -> 취소 함수 // id를 가진 항목을 doneItems 배열에서 제거하고, 해당 항목을 todoItems 배열에 추가
   const handleCancelItem = (id) => {
     const itemToCancel = doneItems.find((item) => item.id === id);
     setTodoItems([...todoItems, itemToCancel]);
     setDoneItems(doneItems.filter((item) => item.id !== id));
   };
-  //완료 상태에서 삭제하는 함수 -> id를 가진 항목을 doneItems 배열에서 제거합니다.
+  //완료 상태에서 삭제하는 함수 -> id를 가진 항목을 doneItems 배열에서 제거
   const doneHandleDelete = (id) => {
     setDoneItems(doneItems.filter((item) => item.id !== id));
   };
